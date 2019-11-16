@@ -19,6 +19,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* movies_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* movies_appTests.m */; };
 		689E9DB60C8841A7D926066D /* libPods-movies_app-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C446B028CEA4678E57AF5EC /* libPods-movies_app-tvOS.a */; };
+		CFEB486723808C7A00E7A31D /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFEB486623808C7A00E7A31D /* libRNGestureHandler.a */; };
 		E646D83C47FAD81EA078AF83 /* libPods-movies_app-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A8071CFF1EF9BBF5C4C868 /* libPods-movies_app-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "movies_app-tvOS";
+		};
+		CFEB485E2380882500E7A31D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFEB48592380882500E7A31D /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNGestureHandler;
+		};
+		CFEB48602380882500E7A31D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFEB48592380882500E7A31D /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
+			remoteInfo = "RNGestureHandler-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,6 +77,8 @@
 		84E6CA5F39C6EE4B532031A0 /* Pods-movies_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movies_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-movies_app/Pods-movies_app.debug.xcconfig"; sourceTree = "<group>"; };
 		98FBB14176495D8D26B36CAE /* Pods-movies_app-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movies_app-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-movies_app-tvOS/Pods-movies_app-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A4C5A4B29BE522D2B090A737 /* libPods-movies_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-movies_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFEB48592380882500E7A31D /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
+		CFEB486623808C7A00E7A31D /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7978E05DBC832D50FEFB658 /* Pods-movies_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movies_app.release.xcconfig"; path = "Pods/Target Support Files/Pods-movies_app/Pods-movies_app.release.xcconfig"; sourceTree = "<group>"; };
 		E6E8CBAEC3205E16F37A5082 /* Pods-movies_app-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movies_app-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-movies_app-tvOSTests/Pods-movies_app-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -82,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFEB486723808C7A00E7A31D /* libRNGestureHandler.a in Frameworks */,
 				28C112249B56B8CA92B035D4 /* libPods-movies_app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +157,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFEB486623808C7A00E7A31D /* libRNGestureHandler.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				A4C5A4B29BE522D2B090A737 /* libPods-movies_app.a */,
@@ -152,6 +171,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CFEB48592380882500E7A31D /* RNGestureHandler.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -178,6 +198,15 @@
 				00E356EE1AD99517003FC87E /* movies_appTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* movies_app-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* movies_app-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFEB485A2380882500E7A31D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFEB485F2380882500E7A31D /* libRNGestureHandler.a */,
+				CFEB48612380882500E7A31D /* libRNGestureHandler-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -307,12 +336,19 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CFEB485A2380882500E7A31D /* Products */;
+					ProjectRef = CFEB48592380882500E7A31D /* RNGestureHandler.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* movies_app */,
@@ -322,6 +358,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CFEB485F2380882500E7A31D /* libRNGestureHandler.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGestureHandler.a;
+			remoteRef = CFEB485E2380882500E7A31D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CFEB48612380882500E7A31D /* libRNGestureHandler-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNGestureHandler-tvOS.a";
+			remoteRef = CFEB48602380882500E7A31D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -370,7 +423,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;

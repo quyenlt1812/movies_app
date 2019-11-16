@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/letuquyen/Personal/movies_app/node_modules/react-native/Libraries/TypeSafety/RCTConvertHelpers.mm \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Target\ Support\ Files/RCTTypeSafety/RCTTypeSafety-prefix.pch \
+  /Users/letuquyen/Personal/movies_app/node_modules/react-native/Libraries/TypeSafety/RCTConvertHelpers.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/FBLazyVector/FBLazyVector/FBLazyVector.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/FBLazyVector/FBLazyVector/FBLazyIterator.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Folly/folly/Optional.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Folly/folly/Portability.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Folly/folly/portability/Config.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Folly/folly/CPortability.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Folly/folly/Traits.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Folly/folly/Utility.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Folly/folly/lang/Exception.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Folly/folly/CppAttributes.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTConvert.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTAnimationType.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTBorderStyle.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTInspectorDevServerHelper.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTPackagerConnection.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTLog.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTAssert.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTUtils.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTPointerEvents.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/React-Core/React/RCTTextDecorationLineType.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/Yoga/yoga/Yoga.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/Yoga/yoga/YGEnums.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/Yoga/yoga/YGMacros.h \
+  /Users/letuquyen/Personal/movies_app/ios/Pods/Headers/Public/Yoga/yoga/YGValue.h
