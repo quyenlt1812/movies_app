@@ -9,6 +9,8 @@ module.exports = {
 		'react/jsx-filename-extension': 'off',
 		'react/prop-types': 'off',
 		'comma-dangle': 'off',
+		indent: [2, 'tab'],
+		'no-tabs': 0,
 	},
 	globals: {
 		fetch: false,
