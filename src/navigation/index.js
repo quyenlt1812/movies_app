@@ -1,11 +1,19 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import MovieList from '../containers/MovieList';
+import Main from '../containers/Main';
+import MovieDetail from '../containers/MovieDetail';
+import SearchBox from '../components/SearchBox';
 
 const AppNavigator = createStackNavigator({
-	MovieList: {
-		screen: MovieList,
+	Main: {
+		screen: Main,
+		navigationOptions: {
+			header: <SearchBox />,
+		},
+	},
+	MovieDetail: {
+		screen: MovieDetail,
 	},
 });
 

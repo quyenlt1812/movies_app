@@ -18,3 +18,32 @@ export const getMovies = async page => {
 		console.log('TCL: getMovies -> error', error);
 	}
 };
+
+export const getTopRatedMovies = async page => {
+	try {
+		const res = await axiosService.get(
+			`/movie/top_rated?api_key=d7c40654d95940990da63cd4110311e5&page=${page}`,
+		);
+		return res.data;
+	} catch (error) {
+		console.log('TCL: getMovies -> error', error);
+	}
+};
+
+export const getMovie = async movieId => {
+	try {
+		const res = await axiosService.get(
+			`/movie/${movieId}?api_key=d7c40654d95940990da63cd4110311e5`,
+		);
+		return res.data;
+	} catch (error) {
+		console.log('TCL: error', error);
+	}
+};
+
+export const searchMovies = async keyword => {
+	const res = await axiosService.get(
+		`/search/movie?api_key=d7c40654d95940990da63cd4110311e5&query=${keyword}`,
+	);
+	return res.data;
+};
