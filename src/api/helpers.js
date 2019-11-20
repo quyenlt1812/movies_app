@@ -35,6 +35,19 @@ export const getMovie = async movieId => {
 		const res = await axiosService.get(
 			`/movie/${movieId}?api_key=d7c40654d95940990da63cd4110311e5`,
 		);
+		const credits = await getCredits(movieId);
+		console.log('TCL: credits', credits);
+		return { ...res.data, cast: credits.cast };
+	} catch (error) {
+		console.log('TCL: error', error);
+	}
+};
+
+export const getCredits = async movieId => {
+	try {
+		const res = await axiosService.get(
+			`/movie/${movieId}/credits?api_key=d7c40654d95940990da63cd4110311e5`,
+		);
 		return res.data;
 	} catch (error) {
 		console.log('TCL: error', error);

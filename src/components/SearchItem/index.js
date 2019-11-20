@@ -1,3 +1,4 @@
 import SearchItem from './SearchItem';
+import { withNavigation } from 'react-navigation';
 
-export default SearchItem;
+export default withNavigation(SearchItem);

@@ -1,3 +1,4 @@
 import MovieCard from './MovieCard';
+import { withNavigation } from 'react-navigation';
 
-export default MovieCard;
+export default withNavigation(MovieCard);

@@ -5,9 +5,11 @@ import {
 	SafeAreaView,
 	FlatList,
 	ActivityIndicator,
+	RefreshControl,
 } from 'react-native';
 import { getMovies } from '../../api/helpers';
-import MovieCard from '../../components/MovieCard/MovieCard';
+import MovieCard from '../../components/MovieCard';
+import Loading from '../../components/Loading';
 
 class MovieList extends React.Component {
 	constructor(props) {
@@ -70,40 +72,46 @@ class MovieList extends React.Component {
 					marginBottom: 10,
 				}}
 			>
-				<ActivityIndicator animating size="large" />
+				<Loading size={40} />
 			</View>
 		);
 	};
 
 	render() {
 		const { movies, refreshing, loading } = this.state;
-		const { navigation } = this.props;
-		console.log('TCL: render -> movies', movies);
+
+		if (loading) {
+			return (
+				<SafeAreaView style={styles.loadingContainer}>
+					<Loading />
+				</SafeAreaView>
+			);
+		}
+
 		return (
 			<SafeAreaView style={styles.container}>
-				{loading ? (
-					<View style={styles.loadingContainer}>
-						<ActivityIndicator animating size="large" />
-					</View>
-				) : (
-					<FlatList
-						contentContainerStyle={{
-							flexDirection: 'column',
-							width: '100%',
-						}}
-						data={movies}
-						keyExtractor={item => item.id.toString()}
-						renderItem={({ item }) => (
-							<MovieCard movie={item} navigation={navigation} />
-						)}
-						onEndReached={this._handleLoadMore}
-						onEndReachedThreshold={0.5}
-						initialNumToRender={10}
-						ListFooterComponent={this._renderFooter}
-						onRefresh={this._handleRefresh}
-						refreshing={refreshing}
-					/>
-				)}
+				<FlatList
+					contentContainerStyle={{
+						flexDirection: 'column',
+						width: '100%',
+					}}
+					data={movies}
+					keyExtractor={item => item.id.toString()}
+					renderItem={({ item }) => <MovieCard movie={item} />}
+					onEndReached={this._handleLoadMore}
+					onEndReachedThreshold={0.5}
+					initialNumToRender={10}
+					ListFooterComponent={this._renderFooter}
+					refreshControl={
+						<RefreshControl
+							title="Pull to refresh"
+							tintColor="#8093a7"
+							titleColor="#8093a7"
+							refreshing={refreshing}
+							onRefresh={this._handleRefresh}
+						/>
+					}
+				/>
 			</SafeAreaView>
 		);
 	}

@@ -7,6 +7,7 @@ import {
 	Modal,
 	SafeAreaView,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProgressiveImage from '../ProgressiveImage/ProgressiveImage';
 
 const ConfirmModal = ({
@@ -53,6 +54,7 @@ const ConfirmModal = ({
 );
 
 const MovieCard = ({ movie, navigation, inFavorite, removeFromFavorite }) => {
+	console.log('TCL: MovieCard -> navigation', navigation);
 	const {
 		id,
 		title,
@@ -94,7 +96,8 @@ const MovieCard = ({ movie, navigation, inFavorite, removeFromFavorite }) => {
 								onPress={() => setShowConfirmModal(true)}
 							>
 								<View style={styles.btnRemove}>
-									<Text style={styles.btnRemoveText}>Remove from favorite</Text>
+									<Icon name="trash-can-outline" size={18} color="white" />
+									<Text style={styles.btnRemoveText}>Remove</Text>
 								</View>
 							</TouchableHighlight>
 						)}
@@ -167,9 +170,11 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 		alignSelf: 'flex-end',
 		borderRadius: 10,
+		flexDirection: 'row',
 	},
 	btnRemoveText: {
 		color: '#ffffff',
+		marginLeft: 8,
 	},
 	modalWrapper: {
 		display: 'flex',

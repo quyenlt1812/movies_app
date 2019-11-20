@@ -1,11 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 import ProgressiveImage from '../ProgressiveImage/ProgressiveImage';
 
-const SearchItem = ({ movie }) => {
-	const { poster_path: poster, title, release_date: release } = movie;
+const SearchItem = ({ movie, navigation }) => {
+	const { id, poster_path: poster, title, release_date: release } = movie;
 	return (
-		<View style={styles.container}>
+		<TouchableHighlight
+			underlayColor="transparent"
+			style={styles.container}
+			onPress={() => navigation.navigate('MovieDetail', { movieId: id })}
+		>
 			<View style={styles.itemContainer}>
 				<View style={styles.imageContainer}>
 					<ProgressiveImage
@@ -30,14 +34,14 @@ const SearchItem = ({ movie }) => {
 					</Text>
 				</View>
 			</View>
-		</View>
+		</TouchableHighlight>
 	);
 };
 
 const styles = StyleSheet.create({
 	container: {
 		paddingVertical: 12,
-		marginHorizontal: 15,
+		paddingHorizontal: 15,
 		borderBottomColor: 'rgba(195, 210, 225, 0.65)',
 		borderBottomWidth: 1,
 	},

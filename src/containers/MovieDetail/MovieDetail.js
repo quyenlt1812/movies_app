@@ -5,8 +5,9 @@ import {
 	Text,
 	ScrollView,
 	TouchableHighlight,
-	ActivityIndicator,
+	StatusBar,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import { getMovie } from '../../api/helpers';
 import ProgressiveImage from '../../components/ProgressiveImage/ProgressiveImage';
@@ -15,6 +16,9 @@ import {
 	removeMovieFromFavoriteList,
 	addMovieToFavorite,
 } from '../../utils';
+import Card from '../../components/Card/Card';
+import CastSection from '../../components/CastSection';
+import Loading from '../../components/Loading';
 
 class MovieDetail extends React.Component {
 	constructor(props) {
@@ -75,13 +79,14 @@ class MovieDetail extends React.Component {
 		if (loading) {
 			return (
 				<View style={styles.loadingContainer}>
-					<ActivityIndicator animating size="large" />
+					<Loading />
 				</View>
 			);
 		}
 
 		return (
 			<View style={styles.container}>
+				<StatusBar barStyle="light-content" />
 				<ProgressiveImage
 					style={styles.backdrop}
 					thumbnailSource={{
@@ -117,35 +122,64 @@ class MovieDetail extends React.Component {
 									Release date: {movieDetail.release_date}
 								</Text>
 								<View style={styles.contentBlock}>
-									<Text>Rating:</Text>
-									<Text>{`${movieDetail.vote_average}/10 (${movieDetail.vote_count} votes total)`}</Text>
+									<Text style={styles.sectionTitle}>
+										Rating:{' '}
+										<Text
+											style={styles.shortDes}
+										>{`${movieDetail.vote_average}/10 (${movieDetail.vote_count} votes)`}</Text>
+									</Text>
+								</View>
+								<View style={styles.contentBlock}>
+									<Text style={styles.sectionTitle}>
+										Popularity:{' '}
+										<Text style={styles.shortDes}>
+											{movieDetail.popularity}
+										</Text>
+									</Text>
 								</View>
 							</View>
 						</View>
 						<TouchableHighlight onPress={this._toggleFavorite}>
-							<View style={styles.addToFavBtn}>
-								<Text style={{ color: 'white', fontSize: 16 }}>
-									{isFavorite ? 'REMOVE FROM FAVORITE' : 'ADD TO FAVORITE'}
-								</Text>
+							<View
+								style={[
+									{
+										...styles.addToFavBtn,
+										backgroundColor: isFavorite ? '#ed3d48' : '#ffffff',
+									},
+								]}
+							>
+								<Icon
+									name={isFavorite ? 'heart' : 'heart-outline'}
+									size={30}
+									color={isFavorite ? '#ffffff' : '#ed3d48'}
+								/>
 							</View>
 						</TouchableHighlight>
 					</View>
 					<View style={styles.detailWrapper}>
-						<View style={styles.contentBlock}>
-							<Text>Overview:</Text>
-							<Text>{movieDetail.overview}</Text>
-						</View>
-						<View style={styles.contentBlock}>
-							<Text>Genres:</Text>
-							<Text>
-								{movieDetail.genres &&
-									movieDetail.genres.map((genre, index) => (
-										<Text>{`${genre.name}${
-											index !== movieDetail.genres.length ? ', ' : ''
-										}`}</Text>
-									))}
-							</Text>
-						</View>
+						<Card>
+							<View style={styles.contentBlock}>
+								<Text style={styles.sectionTitle}>Overview:</Text>
+								<Text style={styles.shortDes}>{movieDetail.overview}</Text>
+							</View>
+							<View style={styles.contentBlock}>
+								<Text style={styles.sectionTitle}>Genres:</Text>
+								<Text style={styles.shortDes}>
+									{movieDetail.genres &&
+										movieDetail.genres.map((genre, index) => (
+											<Text key={index}>
+												{`${genre.name}${
+													index !== movieDetail.genres.length ? ', ' : ''
+												}`}
+											</Text>
+										))}
+								</Text>
+							</View>
+						</Card>
+						<Card>
+							<Text style={styles.sectionTitle}>Cast</Text>
+							<CastSection cast={movieDetail.cast} />
+						</Card>
 					</View>
 				</ScrollView>
 			</View>
@@ -163,36 +197,48 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#f2f6fa',
-		position: 'relative',
+		paddingBottom: 20,
 	},
 	contentWrapper: {
 		marginHorizontal: 15,
-		paddingTop: 180,
+		paddingTop: 130,
 		borderRadius: 10,
-		overflow: 'hidden',
 	},
 	infoWrapper: {
 		display: 'flex',
 		flexDirection: 'row',
 		backgroundColor: '#ffffff',
 		paddingHorizontal: 20,
-		paddingVertical: 15,
+		paddingVertical: 10,
+		borderRadius: 10,
+		shadowColor: 'rgba(195, 210, 225, 0.65)',
+		shadowOffset: { width: 0, height: 1 },
+		shadowOpacity: 0.8,
+		shadowRadius: 5,
+		elevation: 5,
 	},
 	addToFavBtn: {
-		width: '100%',
+		width: 60,
+		height: 60,
+		borderRadius: 1000,
 		color: '#ffffff',
-		backgroundColor: '#3c80ef',
-		paddingVertical: 20,
-		textAlign: 'center',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
+		position: 'absolute',
+		bottom: -30,
+		right: 20,
+		shadowColor: 'rgba(195, 210, 225, 0.65)',
+		shadowOffset: { width: 0, height: 1 },
+		shadowOpacity: 0.8,
+		shadowRadius: 5,
+		elevation: 5,
 	},
 	backdrop: {
 		width: '100%',
-		height: 220,
+		height: 258,
 		position: 'absolute',
-		top: 0,
+		top: -88,
 		left: 0,
 	},
 	image: {
@@ -207,6 +253,12 @@ const styles = StyleSheet.create({
 		marginBottom: 4,
 		color: '#273d57',
 	},
+	sectionTitle: {
+		fontSize: 14,
+		fontWeight: 'bold',
+		marginBottom: 4,
+		color: '#273d57',
+	},
 	releaseDate: {
 		fontSize: 12,
 		marginBottom: 10,
@@ -215,6 +267,7 @@ const styles = StyleSheet.create({
 	shortDes: {
 		fontSize: 14,
 		color: '#8093a7',
+		fontWeight: 'normal',
 	},
 	linearGradient: {
 		width: '100%',
@@ -224,13 +277,24 @@ const styles = StyleSheet.create({
 		top: 0,
 	},
 	detailWrapper: {
-		paddingHorizontal: 20,
-		paddingTop: 30,
 		backgroundColor: '#f2f6fa',
+		marginTop: 50,
 	},
 	contentBlock: {
-		paddingVertical: 10,
+		paddingVertical: 8,
 	},
 });
+
+MovieDetail.navigationOptions = {
+	headerStyle: {
+		backgroundColor: '#00000000',
+		shadowColor: 'transparent',
+		borderBottomColor: 'transparent',
+	},
+	headerTintColor: '#ffffff',
+	headerTitleStyle: {
+		fontWeight: 'bold',
+	},
+};
 
 export default MovieDetail;

@@ -9,7 +9,7 @@ class SearchBox extends React.Component {
 		super(props);
 		this.state = {
 			search: '',
-			results: [],
+			results: null,
 			loading: false,
 		};
 	}
@@ -57,7 +57,7 @@ class SearchBox extends React.Component {
 					containerStyle={styles.container}
 					inputContainerStyle={styles.input}
 				/>
-				{search.length > 0 && (
+				{search.length > 0 && results && (
 					<View style={styles.resultsContainer}>
 						{typeof results === 'string' ? (
 							<Text>Nothing founds</Text>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#ffffff',
 		borderColor: '#ffffff',
-		paddingTop: 50,
+		paddingTop: 40,
 		paddingHorizontal: 10,
 	},
 	input: {

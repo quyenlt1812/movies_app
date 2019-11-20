@@ -7,7 +7,7 @@ import {
 	FlatList,
 	ActivityIndicator,
 } from 'react-native';
-import MovieCard from '../../components/MovieCard/MovieCard';
+import MovieCard from '../../components/MovieCard';
 import { getFavoriteMovies, removeMovieFromFavoriteList } from '../../utils';
 
 class Favorite extends React.PureComponent {

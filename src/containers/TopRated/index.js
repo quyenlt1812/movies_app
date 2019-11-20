@@ -1,14 +1,14 @@
 import React from 'react';
 import {
 	View,
-	Text,
 	StyleSheet,
 	SafeAreaView,
 	FlatList,
 	ActivityIndicator,
 } from 'react-native';
 import { getTopRatedMovies } from '../../api/helpers';
-import MovieCard from '../../components/MovieCard/MovieCard';
+import MovieCard from '../../components/MovieCard';
+import Loading from '../../components/Loading';
 
 class MovieList extends React.Component {
 	constructor(props) {
@@ -78,9 +78,16 @@ class MovieList extends React.Component {
 	};
 
 	render() {
-		const { movies, refreshing } = this.state;
-		const { navigation } = this.props;
-		console.log('TCL: render -> movies', movies);
+		const { movies, refreshing, loading } = this.state;
+
+		if (loading) {
+			return (
+				<SafeAreaView style={styles.loadingContainer}>
+					<Loading />
+				</SafeAreaView>
+			);
+		}
+
 		return (
 			<SafeAreaView style={styles.container}>
 				<FlatList
@@ -90,9 +97,7 @@ class MovieList extends React.Component {
 					}}
 					data={movies}
 					keyExtractor={item => item.id.toString()}
-					renderItem={({ item }) => (
-						<MovieCard movie={item} navigation={navigation} />
-					)}
+					renderItem={({ item }) => <MovieCard movie={item} />}
 					onEndReached={this._handleLoadMore}
 					onEndReachedThreshold={0.5}
 					initialNumToRender={10}
@@ -109,6 +114,12 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#f2f6fa',
+	},
+	loadingContainer: {
+		flex: 1,
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 });
 
